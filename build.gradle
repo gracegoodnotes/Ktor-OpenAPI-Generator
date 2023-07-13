@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.github.papsign'
-version '0.2-beta.20-SNAPSHOT'
+version '0.2-beta.20-SNAPSHOT-goodnotes-release-1'
 
 repositories {
     mavenCentral()
@@ -12,6 +12,15 @@ repositories {
 }
 
 publishing {
+    repositories {
+        maven {
+            url "https://maven.pkg.github.com/goodnotes/maven-github-packages"
+            credentials {
+                username "gracegoodnotes"
+                password "ghp_xxxxx"
+            }
+        }
+    }
     publications {
         jarModule(MavenPublication) {
             artifactId 'Ktor-OpenAPI-Generator'
