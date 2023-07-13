@@ -19,6 +19,9 @@ data class ThrowsInfo(override val exceptions: List<APIException<*, *>>) : Throw
 /**
  * exists for simpler syntax
  */
+inline fun <T: OpenAPIRoute<T>> T.err(status: HttpStatusCode, crossinline fn: T.() -> Unit = {}): T {
+    return throws(status=status, exClass = Exception::class, fn = fn)
+}
 inline fun <T: OpenAPIRoute<T>, reified EX : Throwable> T.throws(status: HttpStatusCode, exClass: KClass<EX>, crossinline fn: T.() -> Unit = {}): T {
     return throws<T, EX>(status, fn)
 }
