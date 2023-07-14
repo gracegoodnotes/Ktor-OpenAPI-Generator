@@ -10,5 +10,6 @@ annotation class PathParam(
     val description: String,
     val style: PathParamStyle = PathParamStyle.simple,
     val explode: Boolean = false,
-    val deprecated: Boolean = false
+    val deprecated: Boolean = false,
+    val required: Boolean = true
 )
